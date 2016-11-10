@@ -1,5 +1,6 @@
 require "spec_helper"
 require "menu/lista"
+require "menu/dietas"
 
 describe Menu do
   
@@ -25,7 +26,7 @@ describe Menu do
   end
 
 
-   context Lista do
+  context Lista do
     
     before :each do 
       
@@ -57,4 +58,24 @@ describe Menu do
       expect(@lista1.head.value).to equal(@nodo4)
     end
   end
+  
+  #PROBANDO CON MENÚ
+  
+  context Dietas do
+    
+    before :each do
+        
+      @dieta1 = Dietas::Dietas.new("ALMUERZO", "(30 - 35%)", ["Macarrones con salsa de tomate y queso parmesano", "Escalope de ternera", "Ensalada básica con zanahoria rallada", "Mandarina", "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano", "1 guarnición", "1 grande", "1 rodaja"] ,["200 g", "100 g", "120 g", "180 g", "20 g"],785.9,19,34,47)
+      #@dieta2 = Dietas.new()
+      #@dieta3 = Dietas.new()
+      #@dieta4 = Dietas.new()
+      #@dieta5 = Dietas.new()
+    end
+
+    it 'Mostrar Dieta' do
+      expect(@dieta1.to_s).to eq("ALMUERZO  (30 - 35%)\n- Macarrones con salsa de tomate y queso parmesano, 1 1/2 cucharón, 200 g\n- Escalope de ternera, 1 bistec mediano, 100 g\n- Ensalada básica con zanahoria rallada, 1 guarnición, 120 g\n- Mandarina, 1 grande, 180 g\n- Pan de trigo integral, 1 rodaja, 20 g\nV.C.T | %    785.9 kcal | 19% - 34% - 47%")
+    end
+  end
+  
+  
 end
