@@ -1,4 +1,4 @@
-#Práctica de Laboratorio --> POO: Herencia
+#Práctica de Laboratorio 8 --> POO: Herencia
 Emmanuel Rivero Arbelo
 
 
