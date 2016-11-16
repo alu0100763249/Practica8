@@ -1,6 +1,5 @@
-#Práctica de Laboratorio 
-#7. Programación Orientada a Objetos.
-#Emmanuel Rivero Arbelo
+#Práctica de Laboratorio --> POO: Herencia
+Emmanuel Rivero Arbelo
 
 
 # Menu
