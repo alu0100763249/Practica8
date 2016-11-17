@@ -1,4 +1,3 @@
-module Dietas
     class Dietas
         attr_accessor :titulo, :porcentaje, :descripcion, :porcion, :gramos, :vct, :pp, :pg, :ph
         
@@ -68,7 +67,7 @@ module Dietas
 		attr_accessor :grupoed
 	
 		def initialize(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph, grupoed)
-			super(titulo,titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
+			super(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
 			@grupoed=grupoed
 		end
 	
@@ -85,7 +84,7 @@ module Dietas
 		attr_accessor :grupoali
 		
 		def initialize(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph, grupoali)
-			super(titulo,titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
+			super(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
 			@grupoali=grupoali
 		end
 		
@@ -97,4 +96,3 @@ module Dietas
 	
 	
 	end
-end
