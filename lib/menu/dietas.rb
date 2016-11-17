@@ -61,4 +61,40 @@ module Dietas
 	    
 	    
     end
+
+
+	class Edad < Dietas
+	
+		attr_accessor :grupoed
+	
+		def initialize(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph, grupoed)
+			super(titulo,titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
+			@grupoed=grupoed
+		end
+	
+		def to_s()#Obtenemos la salida formateada
+	
+			"#{@grupoed}\n#{@titulo}  #{ingesta_diaria()}\n#{nplatos()}V.C.T | %    #{vacato()} | #{porp()} - #{porg()} - #{porh()}"
+	
+		end
+	
+	end
+
+	class Alimentos < Dietas
+		
+		attr_accessor :grupoali
+		
+		def initialize(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph, grupoali)
+			super(titulo,titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
+			@grupoali=grupoali
+		end
+		
+		def to_s()#Obtenemos la salida formateada
+		
+			"#{@grupoali}\n#{@titulo}  #{ingesta_diaria()}\n#{nplatos()}V.C.T | %    #{vacato()} | #{porp()} - #{porg()} - #{porh()}"
+		
+		end
+	
+	
+	end
 end

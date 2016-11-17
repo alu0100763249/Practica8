@@ -1,4 +1,4 @@
-Nodo = Struct.new(:value, :next)
+Nodo = Struct.new(:value, :next, :prev)
      
 
 
@@ -6,16 +6,29 @@ class Lista
     
 
 
-    attr_accessor :head
+    attr_accessor :head, :tail
     
-    def initialize(cabeza)
+    def initialize(cabeza,cola)
         @head = cabeza
+        @tail = cola
+        
        
     end 
+    
     def insertar(x)
-        nodo = Nodo.new(x, nil)       
-        nodo.next=@head
-        @head=nodo
+        nodo = Nodo.new(x, nil, nil)   
+        if @head == nil && @tail==nil
+            nodo.next=@head
+            nodo.prev=@tail
+            @head=nodo
+            @tail=nodo
+        else
+            nodo.prev=@head
+            nodo.next=nil
+            @head.next=nodo
+            @head=nodo
+        end
+        
     end 
     
     def insertar_varios(nodos)
@@ -31,8 +44,12 @@ class Lista
     
     #eliminar el nodo y cambiar los valores al nodo anterior 
     def extraer_inicio()
-       @head=head.next
+       @tail=tail.next
        
+    end
+    
+    def extraer_final()
+        @head=head.prev
     end
     
     def to_s
