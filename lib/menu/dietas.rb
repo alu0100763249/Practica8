@@ -1,4 +1,6 @@
     class Dietas
+    	
+    	include Comparable
         attr_accessor :titulo, :porcentaje, :descripcion, :porcion, :gramos, :vct, :pp, :pg, :ph
         
         def initialize(titulo, porcentaje, descripcion, porcion, gramos, vct, pp, pg, ph)
@@ -57,6 +59,11 @@
 	        "#{@titulo}  #{ingesta_diaria()}\n#{nplatos()}V.C.T | %    #{vacato()} | #{porp()} - #{porg()} - #{porh()}"
 	
 	    end
+	    
+	    def <=>(other)
+	    	vct<=>other.vct
+	    end
+	    
 	    
 	    
     end

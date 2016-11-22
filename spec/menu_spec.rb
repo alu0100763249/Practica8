@@ -198,6 +198,7 @@ describe Menu do
    context Nodo do
     
     before :each do
+      
       @dietaali=Alimentos.new("ALMUERZO", "(30 - 35%)", ["Macarrones con salsa de tomate y queso parmesano", "Escalope de ternera", "Ensalada básica con zanahoria rallada", "Mandarina", "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano", "1 guarnición", "1 grande", "1 rodaja"] ,["200 g", "100 g", "120 g", "180 g", "20 g"],785.9,19,34,47,"leche, huevos, pescado, carne y frutos secos")
       @nodo1=Nodo.new(@dietaali,nil,nil)
     end
@@ -297,5 +298,98 @@ describe Menu do
     
   end
   
+  context 'Probando Comparable' do
+    before :each do
+      @dieta = Dietas.new("CENA", "(25 - 30%)", ["Crema de bubango", "Tortilla campesina con espinacas", "Tomate en dados con atún", "Piña natural o en su jugo picada", "Pan de trigo integral"], ["2 cucharones", "1 cuña grande", "5 a 6 c/soperas", "5 c/soperas", "1 rodaja"] ,["200 g", "150 g", "150 g", "120 g", "20 g"],561.6,19,40,41)
+      @dietaed = Edad.new("MEDIA MAÑANA", "(10%)", ["Cerezas", "Galletas bifidus con sésamo"], ["10-12 unidades medianas", "4 unidades"] ,["120 g", "40 g"],255.5,7,24,69,"9 a 13 años")
+      @dietaali = Alimentos.new("ALMUERZO", "(30 - 35%)", ["Macarrones con salsa de tomate y queso parmesano", "Escalope de ternera", "Ensalada básica con zanahoria rallada", "Mandarina", "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano", "1 guarnición", "1 grande", "1 rodaja"] ,["200 g", "100 g", "120 g", "180 g", "20 g"],785.9,19,34,47,"leche, huevos, pescado, carne y frutos secos")
+    end
+    
+    it 'Alimento es mayor que Dietas' do
+      expect(@dietaali>@dieta).to eq true
+      
+    end
+    
+    it 'Edad es menor que Dietas' do
+      expect(@dietaed < @dieta).to eq true
+    end
+    
+    it 'Dietas es igual a Dietas' do
+      expect(@dieta == @dieta).to eq true
+    end
+    
+    it 'Alimento es mayor o igual a Edad' do
+      expect(@dietaali >= @dietaed).to eq true
+    end    
+    
+    it 'Edad es menor o igual a Dietas' do
+      expect(@dietaed <= @dieta).to eq true
+    end
+    
+  end
+  
+  
+   context 'Lista Enumerable' do
+    
+    before :each do 
+      
+      @lista1 = Lista.new(nil,nil)
+      @dietaed1 = Edad.new("DESAYUNO", "(15%)", ["Leche desnatada", "Cacao instantáneo", "Cereales de desayuno en hojuelas", "Almendras laminadas(10 unidades)"], ["1 vaso", "1 c/sopera", "1 bol pequeño", "2 c/soperas"] ,["200 ml", "10 g", "40 g", "10 g"],288.0,17,21,62,"4 a 8 años")
+      @dietaed2 = Edad.new("MEDIA MAÑANA", "(10%)", ["Cerezas", "Galletas bifidus con sésamo"], ["10-12 unidades medianas", "4 unidades"] ,["120 g", "40 g"],255.5,7,24,69,"9 a 13 años")
+      @dietaed3 = Edad.new("ALMUERZO", "(30 - 35%)", ["Macarrones con salsa de tomate y queso parmesano", "Escalope de ternera", "Ensalada básica con zanahoria rallada", "Mandarina", "Pan de trigo integral"], ["1 1/2 cucharón", "1 bistec mediano", "1 guarnición", "1 grande", "1 rodaja"] ,["200 g", "100 g", "120 g", "180 g", "20 g"],785.9,19,34,47,"9 a 13 años")
+      @dietaed4 = Edad.new("MERIENDA", "(15%)", ["Galletas de leche con chocolate y yogur", "Flan de vainilla sin huevo"], ["4 unidades", "1 unidad"] ,["46 g", "110 g"],313.6,10,30,60,"4 a 8 años")
+      @dietaed5 = Edad.new("CENA", "(25 - 30%)", ["Crema de bubango", "Tortilla campesina con espinacas", "Tomate en dados con atún", "Piña natural o en su jugo picada", "Pan de trigo integral"], ["2 cucharones", "1 cuña grande", "5 a 6 c/soperas", "5 c/soperas", "1 rodaja"] ,["200 g", "150 g", "150 g", "120 g", "20 g"],561.6,19,40,41,"14 a 18 años")
+    
+    end
+    
+    it 'Comprobamos min con números' do
+      @lista1.insertar_varios([1,2,3,4,5]) 
+      expect(@lista1.min).to eq(1)
+    end
+    
+    it 'Comprobamos min con Edad' do
+      @lista1.insertar_varios([@dietaed1,@dietaed2]) 
+      expect(@lista1.min).to eq(@dietaed2)
+    end
+    
+    it 'Comprobamos max con números' do
+      @lista1.insertar_varios([1,2,3,4,5]) 
+      expect(@lista1.max).to eq(5)
+    end
+    
+    it 'Comprobamos max con Edad' do
+      @lista1.insertar_varios([@dietaed1,@dietaed2]) 
+      expect(@lista1.max).to eq(@dietaed1)
+    end
+    
+    it 'Comprobamos drop con números' do
+      @lista1.insertar_varios([1,2,3,4,5]) 
+      expect(@lista1.drop(2)).to eq([3,2,1])
+    end
+    
+     it 'Comprobar drop con Edad' do
+      @lista1.insertar_varios([@dietaed1,@dietaed2,@dietaed3,@dietaed4,@dietaed5]) 
+      expect(@lista1.drop(3)).to eq([@dietaed2,@dietaed1])
+    end
+    
+    it 'Comprobar drop con Edad' do
+      @lista1.insertar_varios([@dietaed1,@dietaed2,@dietaed3,@dietaed4,@dietaed5]) 
+      expect(@lista1.drop(2)).to eq([@dietaed3, @dietaed2, @dietaed1])
+    end
+    
+   
+    it 'Comprobamos sort con números' do
+      @lista1.insertar_varios([1,5,3,2,4]) 
+      expect(@lista1.sort).to eq([1,2,3,4,5])
+    end
+    
+    it 'Comprobamos sort con Edad' do
+      @lista1.insertar_varios([@dietaed1,@dietaed2,@dietaed3,@dietaed4,@dietaed5]) 
+      expect(@lista1.sort).to eq([@dietaed2,@dietaed1,@dietaed4,@dietaed5,@dietaed3])
+    end
+    
+    
+  end
+    
+  
 end
-
