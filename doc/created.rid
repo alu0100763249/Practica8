@@ -1,0 +1,17 @@
+Wed, 23 Nov 2016 10:28:46 +0000
+./Guardfile	Wed, 16 Nov 2016 17:01:35 +0000
+./LICENSE.txt	Wed, 16 Nov 2016 16:41:23 +0000
+./CODE_OF_CONDUCT.md	Wed, 16 Nov 2016 16:41:23 +0000
+./menu.gemspec	Wed, 16 Nov 2016 17:00:13 +0000
+./bin/console	Wed, 16 Nov 2016 16:41:23 +0000
+./bin/setup	Wed, 16 Nov 2016 16:41:23 +0000
+./Rakefile	Wed, 16 Nov 2016 16:41:23 +0000
+./Gemfile	Wed, 16 Nov 2016 16:41:23 +0000
+./README.md	Wed, 16 Nov 2016 16:50:19 +0000
+./spec/menu_spec.rb	Mon, 21 Nov 2016 18:53:34 +0000
+./spec/spec_helper.rb	Wed, 16 Nov 2016 16:41:23 +0000
+./lib/menu.rb	Wed, 16 Nov 2016 16:41:23 +0000
+./lib/menu/lista.rb	Mon, 21 Nov 2016 18:49:03 +0000
+./lib/menu/version.rb	Wed, 16 Nov 2016 16:41:23 +0000
+./lib/menu/dietas.rb	Mon, 21 Nov 2016 17:24:11 +0000
+./Gemfile.lock	Wed, 16 Nov 2016 17:01:01 +0000
