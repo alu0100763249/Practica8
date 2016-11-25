@@ -297,7 +297,7 @@ describe Menu do
     end
     
   end
-  
+  #Practica9
   context 'Probando Comparable' do
     before :each do
       @dieta = Dietas.new("CENA", "(25 - 30%)", ["Crema de bubango", "Tortilla campesina con espinacas", "Tomate en dados con atún", "Piña natural o en su jugo picada", "Pan de trigo integral"], ["2 cucharones", "1 cuña grande", "5 a 6 c/soperas", "5 c/soperas", "1 rodaja"] ,["200 g", "150 g", "150 g", "120 g", "20 g"],561.6,19,40,41)
